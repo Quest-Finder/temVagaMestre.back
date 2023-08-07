@@ -1,15 +1,15 @@
-CREATE TABLE users (
+CREATE TABLE rpg_users (
     id CHAR(36) NOT NULL PRIMARY KEY,
     name VARCHAR(120) NOT NULL,
+    email VARCHAR(180) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
     gender VARCHAR(30),
     age INT,
     experience INT,
     photo VARCHAR(255),
     description VARCHAR(255),
     phone_number VARCHAR(20),
-    email VARCHAR(180) UNIQUE NOT NULL,
-    instagram VARCHAR(180),
-    password VARCHAR(255) NOT NULL
+    instagram VARCHAR(180)
 );
 
 CREATE TABLE master_style (
