@@ -26,7 +26,7 @@ criar um arquivo .env na pasta raiz com as seguintes variáveis:
     DB_PASSWORD =
     DB_HOST = 
     DB_PORT = 
-    DB_DATABASE_NAME =
+    DB_SCHEMA =
 ```
 
 Preencher as variáveis com as informações do seu banco de dados.
