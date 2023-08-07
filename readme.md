@@ -22,11 +22,11 @@ Instruções para preencher o arquivo dotenv:
 criar um arquivo .env na pasta raiz com as seguintes variáveis:
 
 ```
-    DB_USER = 
-    DB_PASSWORD =
-    DB_HOST = 
-    DB_PORT = 
-    DB_SCHEMA =
+    USER = 
+    PASSWORD =
+    HOST = 
+    PORT = 
+    SCHEMA =
 ```
 
 Preencher as variáveis com as informações do seu banco de dados.
