@@ -1,3 +1,4 @@
+-- Active: 1674084192186@@35.226.146.116@3306@jbl-4416152-caroline-martins
 CREATE TABLE rpg_users (
     id CHAR(36) NOT NULL PRIMARY KEY,
     name VARCHAR(120) NOT NULL,
@@ -17,10 +18,10 @@ CREATE TABLE master_style (
     style_name VARCHAR(120) NOT NULL,
     style_description VARCHAR(255) NOT NULL,
     master_id CHAR(36) NOT NULL,
-    FOREIGN KEY master_id REFERENCES users(id)
+    FOREIGN KEY (master_id) REFERENCES rpg_users(id)
 );
 
-CREATE TABLE character (
+CREATE TABLE character_player (
     id CHAR(36) NOT NULL PRIMARY KEY,
     character_name VARCHAR(120) NOT NULL,
     game_system VARCHAR(255) NOT NULL,
@@ -30,7 +31,7 @@ CREATE TABLE character (
     equipment VARCHAR(255) NOT NULL,
     other_details VARCHAR(255),
     player_id CHAR(36) NOT NULL,
-    FOREIGN KEY player_id REFERENCES users(id)
+    FOREIGN KEY (player_id) REFERENCES rpg_users(id)
 );
 
 CREATE TABLE rpg_table (
@@ -41,13 +42,13 @@ CREATE TABLE rpg_table (
     campaign_theme VARCHAR(180) NOT NULL,
     campaign_theme_description VARCHAR(180) NOT NULL,
     master_style_id CHAR(36) NOT NULL,
-    FOREIGN KEY master_style_id REFERENCES master_style(id)
+    FOREIGN KEY (master_style_id) REFERENCES master_style(id)
 );
 
 CREATE TABLE table_participants (
     id CHAR(36) NOT NULL PRIMARY KEY,
     rpg_table_id CHAR(36) NOT NULL,
     character_id CHAR(36) NOT NULL,
-    FOREIGN KEY rpg_table_id REFERENCES rpg_table(id),
-    FOREIGN KEY character_id REFERENCES character(id)
+    FOREIGN KEY (rpg_table_id) REFERENCES rpg_table(id),
+    FOREIGN KEY (character_id) REFERENCES character_player(id)
 );
