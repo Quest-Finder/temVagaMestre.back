@@ -12,12 +12,12 @@ export default class User {
     private instagram?: string
 
     constructor(
-        id: string, 
+        id: string,
         name: string,
         email: string,
         pass: string,
-        gender?: string, 
-        age?: number, 
+        gender?: string,
+        age?: number,
         experience?: number,
         photo?: string,
         description?: string,
@@ -36,4 +36,10 @@ export default class User {
         this.phone = phone
         this.instagram = instagram
     }
+}
+export interface UserDTO {
+    id: string,
+    name: string,
+    email: string,
+    password: string
 }
