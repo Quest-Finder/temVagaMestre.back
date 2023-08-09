@@ -3,7 +3,7 @@ import { InvalidEmail, InvalidInput, InvalidPassword, Unauthorized } from "../er
 import { IAuthenticator } from "../models/IAuthenticator"
 import { IHashManager } from "../models/IHashManager"
 import { IIdGenerator } from "../models/IIdGenerator"
-import { UserInputDTO } from "../models/User";
+import { CreateUserInputDTO } from "../models/User";
 import { UserRepository } from "./UserRepository"
 
 export class UserBusiness {
@@ -14,7 +14,7 @@ export class UserBusiness {
         private idGenerator: IIdGenerator
     ) { }
 
-    public createUser = async (user: UserInputDTO): Promise<string> => {
+    public createUser = async (user: CreateUserInputDTO): Promise<string> => {
         try {
             if (!user.name || !user.email || !user.password) {
                 throw new InvalidInput();
