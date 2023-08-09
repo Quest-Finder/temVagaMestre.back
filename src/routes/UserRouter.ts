@@ -16,4 +16,4 @@ const userBusiness = new UserBusiness(
 )
 const userController = new UserController(userBusiness)
 
-userRouter.get("/test", () => console.log("Testando..."))
+userRouter.post("/create", (req,resp) => userController.createUser(req,resp))
