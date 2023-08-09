@@ -37,13 +37,13 @@ export default class User {
         this.instagram = instagram
     }
 }
-export interface UserDTO {
+export interface CreateUserDTO {
     id: string,
     name: string,
     email: string,
     password: string
 }
-export interface UserInputDTO{
+export interface CreateUserInputDTO{
     name:string,
     email:string,
     password:string
