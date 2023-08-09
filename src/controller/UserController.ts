@@ -1,6 +1,6 @@
 import { UserBusiness } from "../business/UserBusiness";
 import { Request, Response } from "express"
-import { UserInputDTO } from "../models/User";
+import { CreateUserInputDTO } from "../models/User";
 
 export class UserController {
     constructor(private userBusiness: UserBusiness) { }
@@ -9,7 +9,7 @@ export class UserController {
         try {
             const { name, email, password } = req.body
 
-            const input: UserInputDTO = {
+            const input: CreateUserInputDTO = {
                 name,
                 email,
                 password
