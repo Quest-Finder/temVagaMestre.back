@@ -1,5 +1,5 @@
-import User, { UserDTO } from "../models/User";
+import { CreateUserDTO } from "../models/User";
 
 export interface UserRepository {
-    createUser(user: UserDTO):Promise<string>
+    createUser(user: CreateUserDTO):Promise<string>
 }
