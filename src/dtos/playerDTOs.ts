@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { IsNotEmpty, IsString, Length } from "class-validator";
+import { IsEmail, IsNotEmpty, IsString, Length } from "class-validator";
 
 export class CreatePlayerDatabaseDTO {
   id: string;
@@ -15,8 +15,9 @@ export class CreatePlayerInputDTO {
   name: string;
 
   @IsNotEmpty({message: "The player's email must be provided"})
-  @IsString({message: "The player's email must be a string"})
+  @IsString()
   @Length(10, 180)
+  @IsEmail()
   email: string;
 
   @IsNotEmpty({message: "The player's password must be provided"})

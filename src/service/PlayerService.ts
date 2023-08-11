@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
-import { CustomError } from 'src/errors/CustomError';
-import { IAuthenticator } from 'src/models/IAuthenticator';
-import { IHashManager } from 'src/models/IHashManager';
-import { IIdGenerator } from 'src/models/IIdGenerator';
-import { CreatePlayerInputDTO } from 'src/dtos/playerDTOs';
-import { PlayerRepository } from 'src/models/PlayerRepository';
+import { CustomError } from '../errors/CustomError';
+import { IAuthenticator } from '../models/IAuthenticator';
+import { IHashManager } from '../models/IHashManager';
+import { IIdGenerator } from '../models/IIdGenerator';
+import { CreatePlayerInputDTO } from '../dtos/playerDTOs';
+import { PlayerRepository } from '../models/PlayerRepository';
 
 @Injectable()
 export class PlayerService {

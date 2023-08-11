@@ -2,7 +2,7 @@
 import { Body, Controller, Post, Res } from '@nestjs/common';
 import { CreatePlayerInputDTO } from '../dtos/playerDTOs';
 import { Response } from 'express';
-import { PlayerService } from 'src/service/PlayerService';
+import { PlayerService } from '../service/PlayerService';
 
 @Controller('players')
 export class PlayerController {
