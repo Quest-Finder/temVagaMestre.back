@@ -15,7 +15,7 @@ criar um arquivo .env com as informações do seus banco de dados
 
 executar as queries do arquivo queries.sql para criar as tabelas
 
-npm run dev -> para rodar o servidor
+npm run start:dev -> para rodar o servidor
 Instruções para preencher o arquivo dotenv:
 ```
 
@@ -41,13 +41,13 @@ Ainda no .env, preencher também as variáveis:
 ---
 
 <h3 align="center">🛠 Ferramentas:</h3>
-- Typescript</br>
-- Node.js</br>
-- MySQL</br>
-- Express</br>
-- Uuid</br>
-- JsonWebToken</br>
-- Knex</br>
-- Bcrypt</br>
+- Typescript
+- Node.js
+- Nest.js
+- MySQL
+- Uuid
+- JsonWebToken
+- Knex
+- Bcrypt
 
 ---

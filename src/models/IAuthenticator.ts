@@ -1,7 +1,7 @@
-import { AuthenticationData } from "./AuthenticationData"
+/* eslint-disable prettier/prettier */
+import { AuthenticationData } from './AuthenticationData';
 
-
-export interface IAuthenticator {
-    generateToken ({id}: AuthenticationData): string
-    getData (token: string): AuthenticationData
+export abstract class IAuthenticator {
+  abstract generateToken({ id }: AuthenticationData): string;
+  abstract getData(token: string): AuthenticationData;
 }
