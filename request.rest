@@ -2,7 +2,7 @@ POST http://localhost:3003/players/signup
 Content-Type: application/json
 
 {
-    "name":"TESTE TUDO IF", 
-    "email":"IFTESTANDOexample.com", 
+    "name":"Francine Hahn2", 
+    "email":"test@example.com", 
     "password":"12345678"
 }

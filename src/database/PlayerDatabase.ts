@@ -1,16 +1,17 @@
 /* eslint-disable prettier/prettier */
-import { PlayerRepository } from 'src/models/PlayerRepository';
-import BaseDatabase from './BaseDatabase';
+import { PlayerRepository } from '../models/PlayerRepository';
 import { Injectable } from '@nestjs/common';
-import { CreatePlayerDatabaseDTO } from 'src/dtos/playerDTOs';
+import { CreatePlayerDatabaseDTO } from '../dtos/playerDTOs';
+import { DatabaseConfig } from '../models/DatabaseConfig';
 
 @Injectable()
-export class PlayerDatabase extends BaseDatabase implements PlayerRepository {
+export class PlayerDatabase implements PlayerRepository {
+  constructor(private databaseConfig: DatabaseConfig) {}
   TABLE_NAME = 'rpg_players';
 
   async createPlayer(player: CreatePlayerDatabaseDTO): Promise<void> {
     try {
-      await BaseDatabase.connection
+      await this.databaseConfig.connection()
         .insert({
           id: player.id,
           name: player.name,
@@ -19,6 +20,8 @@ export class PlayerDatabase extends BaseDatabase implements PlayerRepository {
         })
         .into(this.TABLE_NAME);
     } catch (error: any) {
+      console.log(error.sqlMessage)
+      console.log(error.message)
       throw new Error(error.sqlMessage || error.message);
     }
   }
