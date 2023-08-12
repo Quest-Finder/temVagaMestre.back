@@ -1,26 +1,23 @@
 /* eslint-disable prettier/prettier */
 import { PlayerRepository } from '../models/PlayerRepository';
 import { Injectable } from '@nestjs/common';
-import { CreatePlayerDatabaseDTO } from '../dtos/playerDTOs';
 import { DatabaseConfig } from '../models/DatabaseConfig';
+import Player from '../models/Player';
 
 @Injectable()
 export class PlayerDatabase implements PlayerRepository {
   constructor(private databaseConfig: DatabaseConfig) {}
   TABLE_NAME = 'rpg_players';
 
-  async createPlayer(player: CreatePlayerDatabaseDTO): Promise<void> {
+  async createPlayer(player: Player): Promise<void> {
     try {
       await this.databaseConfig.connection()
-        .insert({
-          id: player.id,
-          name: player.name,
-          email: player.email,
-          password: player.password,
-        })
+        .insert(player)
         .into(this.TABLE_NAME);
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
+    } finally {
+      this.databaseConfig.connection().destroy()
     }
   }
 }

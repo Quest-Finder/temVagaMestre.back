@@ -17,6 +17,10 @@ describe('PlayerController (e2e)', () => {
     await app.init();
   });
 
+  afterAll(async () => {
+    await app.close();
+  });
+
   it('should create a new player and return a valid token', async () => {
     const input: CreatePlayerInputDTO = {
       name: 'Test Player',
@@ -34,6 +38,7 @@ describe('PlayerController (e2e)', () => {
     const response = await request(app.getHttpServer())
       .post('/players/signup')
       .send(input)
+      .expect(201)
 
     expect(response.status).toBe(201);
     expect(response.body).toHaveProperty('token');
@@ -56,6 +61,7 @@ describe('PlayerController (e2e)', () => {
       await request(app.getHttpServer())
         .post('/players/signup')
         .send(input)
+        .expect(400)
     } catch (error) {
       expect(error.getResponse().statusCode).toBe(400);
     }
@@ -78,6 +84,7 @@ describe('PlayerController (e2e)', () => {
       await request(app.getHttpServer())
         .post('/players/signup')
         .send(input)
+        .expect(400)
     } catch (error) {
       expect(error.getResponse().statusCode).toBe(400);
     }
@@ -100,12 +107,9 @@ describe('PlayerController (e2e)', () => {
       await request(app.getHttpServer())
         .post('/players/signup')
         .send(input)
+        .expect(400)
     } catch (error) {
       expect(error.getResponse().statusCode).toBe(400);
     }
-  });
-
-  afterAll(async () => {
-    await app.close();
   });
 });

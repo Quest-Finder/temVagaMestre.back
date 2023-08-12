@@ -6,6 +6,7 @@ import { IHashManager } from '../models/IHashManager';
 import { IIdGenerator } from '../models/IIdGenerator';
 import { CreatePlayerInputDTO } from '../dtos/playerDTOs';
 import { PlayerRepository } from '../models/PlayerRepository';
+import Player from '../models/Player';
 
 @Injectable()
 export class PlayerService {
@@ -20,13 +21,9 @@ export class PlayerService {
     try {
       const id: string = await this.idGenerator.generate();
       const password = await this.hashManager.hashGenerator(player.password);
+      const newPlayer = new Player(id, player.name, player.email, password)
 
-      await this.playerDatabase.createPlayer({
-        id: id,
-        password: password,
-        name: player.name,
-        email: player.email,
-      });
+      await this.playerDatabase.createPlayer(newPlayer);
 
       const token = this.authenticator.generateToken({ id: id });
       return token;

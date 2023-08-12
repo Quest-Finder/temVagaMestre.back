@@ -1,13 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { IsEmail, IsNotEmpty, IsString, Length } from "class-validator";
 
-export class CreatePlayerDatabaseDTO {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-}
-
 export class CreatePlayerInputDTO {
   @IsNotEmpty({message: "The player name must be provided"})
   @IsString({message: "The player name must be a string"})

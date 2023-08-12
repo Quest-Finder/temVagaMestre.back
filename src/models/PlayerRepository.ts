@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { CreatePlayerDatabaseDTO } from '../dtos/playerDTOs';
+import Player from './Player';
 
 export abstract class PlayerRepository {
-  abstract createPlayer(player: CreatePlayerDatabaseDTO): Promise<void>;
+  abstract createPlayer(player: Player): Promise<void>;
 }

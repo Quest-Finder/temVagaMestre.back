@@ -9,7 +9,7 @@ export default class Player {
   private experience?: number;
   private photo?: string;
   private description?: string;
-  private phone?: string;
+  private phone_number?: string;
   private instagram?: string;
 
   constructor(
@@ -22,7 +22,7 @@ export default class Player {
     experience?: number,
     photo?: string,
     description?: string,
-    phone?: string,
+    phone_number?: string,
     instagram?: string,
   ) {
     this.id = id;
@@ -34,7 +34,7 @@ export default class Player {
     this.experience = experience;
     this.photo = photo;
     this.description = description;
-    this.phone = phone;
+    this.phone_number = phone_number;
     this.instagram = instagram;
   }
 }
