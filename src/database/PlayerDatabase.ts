@@ -20,8 +20,6 @@ export class PlayerDatabase implements PlayerRepository {
         })
         .into(this.TABLE_NAME);
     } catch (error: any) {
-      console.log(error.sqlMessage)
-      console.log(error.message)
       throw new Error(error.sqlMessage || error.message);
     }
   }

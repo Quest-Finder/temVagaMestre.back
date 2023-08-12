@@ -14,9 +14,7 @@ export class PlayerController {
     @Res() res: Response,
   ) {
     try {
-      console.log("input: ", input)
       const token = await this.playerService.createPlayer(input);
-      console.log("token: ", token)
       res.status(201).send({ token });
     } catch (error: any) {
       res

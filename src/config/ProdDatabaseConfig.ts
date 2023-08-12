@@ -1,11 +1,10 @@
 /* eslint-disable prettier/prettier */
 import * as dotenv from 'dotenv';
 import knex from 'knex';
-import { DatabaseConfig } from 'src/models/DatabaseConfig';
 
 dotenv.config();
 
-export class ProdDatabaseConfig implements DatabaseConfig {
+export class ProdDatabaseConfig {
   public connection(): any {
     return knex({
       client: 'mysql',
