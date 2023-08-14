@@ -37,6 +37,7 @@ Ainda no .env, preencher também as variáveis:
     JWT_KEY: ,                  (palavra passe, que vamos definir e deixar no Notion do BACKEND OK?)
     BCRYPT_COST: ,              (cost da lib Bcrypt, geralmente 12   *no nosso caso vamos usar 12*)
     ACCESS_TOKEN_EXPIRES_IN = 1day (esse vai ser o tempo para o token expirar menos de um dia fica ruim para testes)
+    NODE_ENV = "test" para rodar os testes e "production" para rodar o projeto localmente
 
 ---
 
@@ -49,5 +50,5 @@ Ainda no .env, preencher também as variáveis:
 - JsonWebToken
 - Knex
 - Bcrypt
-
+- Class Validator
 ---

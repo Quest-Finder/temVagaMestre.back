@@ -22,7 +22,7 @@ export class PlayerService {
       const id: string = await this.idGenerator.generate();
       const password = await this.hashManager.hashGenerator(player.password);
       const newPlayer = new Player(id, player.name, player.email, password)
-
+      
       await this.playerDatabase.createPlayer(newPlayer);
 
       const token = this.authenticator.generateToken({ id: id });

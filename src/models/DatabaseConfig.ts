@@ -4,5 +4,4 @@ import { Knex } from "knex";
 export abstract class DatabaseConfig {
     [x: string]: any;
     abstract connection(): Knex;
-    abstract closeConnection(): Promise<void>
 }
