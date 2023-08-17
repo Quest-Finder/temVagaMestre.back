@@ -1,3 +1,4 @@
-export interface AuthenticationData {
-    id: string;
+/* eslint-disable prettier/prettier */
+export abstract class AuthenticationData {
+  id: string;
 }
