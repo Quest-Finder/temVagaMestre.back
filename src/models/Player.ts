@@ -1,10 +1,16 @@
 /* eslint-disable prettier/prettier */
+export enum GENDER {
+  "FEM" = "FEM",
+  "MASC" = "MASC",
+  "NA" = "NA"
+}
+
 export default class Player {
   private id: string;
   private name: string;
   private email: string;
   private password: string;
-  private gender?: string;
+  private gender?: GENDER;
   private age?: number;
   private experience?: number;
   private photo?: string;
@@ -17,7 +23,7 @@ export default class Player {
     name: string,
     email: string,
     pass: string,
-    gender?: string,
+    gender?: GENDER,
     age?: number,
     experience?: number,
     photo?: string,

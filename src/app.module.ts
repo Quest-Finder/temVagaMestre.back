@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { PlayerController } from './controller/PlayerController';
 import { PlayerService } from './service/PlayerService';
