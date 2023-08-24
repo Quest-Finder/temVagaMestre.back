@@ -6,3 +6,9 @@ export class Unauthorized extends CustomError {
     super(401, 'Unauthorized user.');
   }
 }
+
+export class InvalidInstagramUrl extends CustomError {
+  constructor() {
+    super(422, 'Invalid instagram url.');
+  }
+}

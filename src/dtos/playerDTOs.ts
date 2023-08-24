@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { IsEmail, IsEnum, IsJWT, IsNotEmpty, IsNumber, IsPhoneNumber, IsString, IsUrl, Length, Min } from "class-validator";
-import { GENDER } from "src/models/Player";
+import { GENDER } from "../models/Player";
 
 export class CreatePlayerInputDTO {
   @IsNotEmpty({message: "The player name must be provided"})
@@ -31,6 +31,7 @@ export class FinishPlayerRegistrationInputDTO {
 
   @IsNotEmpty({message: "The experience must be provided"})
   @IsNumber()
+  @Min(1)
   experience: number;
 
   @IsNotEmpty({message: "The photo url must be provided"})

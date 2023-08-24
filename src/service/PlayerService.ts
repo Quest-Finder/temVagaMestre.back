@@ -7,7 +7,7 @@ import { IIdGenerator } from '../models/IIdGenerator';
 import { CreatePlayerInputDTO, FinishPlayerRegistrationInputDTO } from '../dtos/playerDTOs';
 import { PlayerRepository } from '../models/PlayerRepository';
 import Player from '../models/Player';
-import { Unauthorized } from 'src/errors/PlayerErrors';
+import { InvalidInstagramUrl, Unauthorized } from '../errors/PlayerErrors';
 
 @Injectable()
 export class PlayerService {
@@ -40,6 +40,10 @@ export class PlayerService {
       
       if (!playerId.id) {
         throw new Unauthorized();
+      }
+
+      if (!input.instagram.includes("instagram")) {
+        throw new InvalidInstagramUrl();
       }
 
       await this.playerDatabase.finishPlayerRegistration(playerId.id, input);
