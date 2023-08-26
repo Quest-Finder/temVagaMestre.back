@@ -37,7 +37,7 @@ export class PlayerService {
   async finishPlayerRegistration(token: string, input: FinishPlayerRegistrationInputDTO): Promise<void> {
     try {
       const playerId = await this.authenticator.getData(token);
-      
+
       if (!playerId.id) {
         throw new Unauthorized();
       }
