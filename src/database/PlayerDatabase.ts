@@ -3,8 +3,8 @@ import { PlayerRepository } from '../models/PlayerRepository';
 import { Injectable } from '@nestjs/common';
 import { DatabaseConfig } from '../models/DatabaseConfig';
 import Player from '../models/Player';
-import { CustomError } from 'src/errors/CustomError';
-import { FinishPlayerRegistrationInputDTO } from 'src/dtos/playerDTOs';
+import { CustomError } from '../errors/CustomError';
+import { FinishPlayerRegistrationInputDTO } from '../dtos/playerDTOs';
 
 @Injectable()
 export class PlayerDatabase implements PlayerRepository {
