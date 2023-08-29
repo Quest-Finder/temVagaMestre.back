@@ -2,7 +2,22 @@ POST http://localhost:3003/players/signup
 Content-Type: application/json
 
 {
-    "name":"Bruna Tavares", 
-    "email":"bruna@teste.com", 
+    "name":"Teste teste", 
+    "email":"teste@teste.com", 
     "password":"12345678"
+}
+
+###
+PATCH http://localhost:3003/players/finish-registration
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFmNjA5NjJjLTEyMzgtNDdhZC1iOWFlLWEwOGQ0NzlkYTRiZiIsImlhdCI6MTY5MjY0NTUzNiwiZXhwIjoxNjkyNzMxOTM2fQ.P4hOLGGQ_VQHBm10iFG0-E_eMV2ItprRCRaUrtRYAyI
+Content-Type: application/json
+
+{
+    "gender": "FEM", 
+    "age": 18, 
+    "experience": 1,
+    "photo": "www.phototeste.com",
+    "description": "Ola mundo",
+    "phone_number": "993361676",
+    "instagram": "www.instagram.com/teste"
 }

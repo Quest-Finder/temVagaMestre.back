@@ -11,9 +11,11 @@ dotenv.config();
 @Injectable()
 export class Authenticator implements IAuthenticator {
   public generateToken = ({ id }: AuthenticationData): string => {
-    const token = jwt.sign({ id }, process.env.JWT_KEY as string, {
-      expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN,
-    });
+    const token = jwt.sign(
+      { id },
+      process.env.JWT_KEY as string, 
+      {expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN}
+    );
 
     return token;
   };
@@ -24,8 +26,10 @@ export class Authenticator implements IAuthenticator {
         token,
         process.env.JWT_KEY as string,
       ) as AuthenticationData;
+
       return payload;
     } catch (err: any) {
+      console.log("error: ", err.message)
       throw new Unauthorized();
     }
   };

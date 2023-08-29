@@ -5,7 +5,9 @@ import { AppModule } from '../../src/app.module';
 import * as request from 'supertest';
 import { CreatePlayerInputDTO } from '../../src/dtos/playerDTOs';
 
-describe('PlayerController (e2e)', () => {
+export let token;
+
+describe('CreatePlayerController (e2e)', () => {
   let app: INestApplication;
 
   beforeAll(async () => {
@@ -39,6 +41,8 @@ describe('PlayerController (e2e)', () => {
       .post('/players/signup')
       .send(input)
       .expect(201)
+
+    token = response.body.token;
 
     expect(response.status).toBe(201);
     expect(response.body).toHaveProperty('token');
